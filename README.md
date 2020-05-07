@@ -16,7 +16,7 @@ As of May 7th, 2020 there are **6,331** unique ATC codes and 5,517 unique names 
 | Level 4   | 889   | 819   |
 | Level 5   | 5067  | 4363  |
   
-An example of a name with multiple codes is "miconazole," which has codes [A01AB09](https://www.whocc.no/atc_ddd_index/?code=A01AB09&showdescription=no), [A07AC01](https://www.whocc.no/atc_ddd_index/?code=A07AC01&showdescription=no), [D01AC02](https://www.whocc.no/atc_ddd_index/?code=D01AC02&showdescription=no), [G01AF04](https://www.whocc.no/atc_ddd_index/?code=G01AF04&showdescription=no), [J02AB01](https://www.whocc.no/atc_ddd_index/?code=J02AB01&showdescription=no), [S02AA13](https://www.whocc.no/atc_ddd_index/?code=S02AA13&showdescription=no).
+An example of a name with multiple codes is "miconazole", which has codes [A01AB09](https://www.whocc.no/atc_ddd_index/?code=A01AB09&showdescription=no), [A07AC01](https://www.whocc.no/atc_ddd_index/?code=A07AC01&showdescription=no), [D01AC02](https://www.whocc.no/atc_ddd_index/?code=D01AC02&showdescription=no), [G01AF04](https://www.whocc.no/atc_ddd_index/?code=G01AF04&showdescription=no), [J02AB01](https://www.whocc.no/atc_ddd_index/?code=J02AB01&showdescription=no), [S02AA13](https://www.whocc.no/atc_ddd_index/?code=S02AA13&showdescription=no).
   
 **If you just need all ATC classes and data in one big table, you can download the CSV file in this repository.** However, remember that the data is continuously updated.  
   
