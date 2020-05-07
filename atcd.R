@@ -21,8 +21,8 @@ ensureDir <- function(...) {
   dir_path
 }
 
-out_dir <- ensureDir('../Out')
-rds_dir <- ensureDir(paste0(out_dir, '/rds'))
+out_dir <- ensureDir('Out')
+rds_dir <- ensureDir(paste0(out_dir, 'rds'))
 global_rds_override <- FALSE # Set this to TRUE to force the script to forget all prior runs and start again from zero.
 
 options(expressions = 100000) # Allow deep recursion.
@@ -206,3 +206,4 @@ paste0(out_dir, '/WHO ATC-DDD ', format(Sys.Date(), "%Y-%m-%d"), '.csv') %>%
 
 # Finish execution ------------------------------------------------------------------------------------------------
 message('Script execution completed.')
+
