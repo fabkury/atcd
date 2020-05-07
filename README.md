@@ -1,6 +1,6 @@
 ### Scrape Anatomical-Therapeutic-Chemical (ATC) classes from the WHO Collaborating Centre for Drug Statistics Methodology website
 ###### codename: atcd
-This script scrapes the World Health Organization's ATC website, that is, it reads ATC classes and their information and writes into one flat CSV file.
+This script scrapes the World Health Organization's ATC website (https://www.whocc.no/atc_ddd_index/), that is, it reads ATC classes and their information and writes into one flat CSV file.
 
 The code runs recursively down the hierarchy from an input ATC code. For example, if provided with "C10", it will download C10 and all codes and subcodes under C10.
   
