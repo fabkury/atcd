@@ -4,7 +4,7 @@ This script scrapes the World Health Organization's ATC website (https://www.who
 
 The code runs recursively down the hierarchy from an input ATC code. For example, if provided with "C10", it will download C10 and all subcodes under C10.
   
-From ATC levels 1 to 4, you the codes and names of all classes. At ATC level 5, some but not all classes have the additional fields Administration Route, Defined Daily Dose (DDD), and Note; these will also be downloaded if present.
+From ATC levels 1 to 4, you get the codes and names of all classes. At ATC level 5, some but not all classes have the additional fields Administration Route, Defined Daily Dose (DDD), and Note; these will also be scraped if present.
   
 #### Scraping results
 As of May 7th, 2020 there are **6,331** unique ATC codes and 5,517 unique names in the WHO website. Here is a breakdown by ATC level: 
