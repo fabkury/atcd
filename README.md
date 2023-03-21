@@ -29,5 +29,5 @@ The WHO Collaborating Centre for Drug Statistics (WHOCC) sells electronic files 
 All contents of this repository for which the author (Fabrício Kury) claims copyright are hereby released under the Attribution-ShareAlike-NonCommercial 4.0 International license by Creative Commons, please see details at http://creativecommons.org/licenses/by-nc-sa/4.0/.   
 Please feel free to contact me about this work! Reading and reusing code can be made so much easier after a quick text or voice talk with the original author.
 
-_Search engine tags:  
-ATC download ATC-DDD complete hierarchy database all classes defined daily dose_
+_Search engine tags and keywords:  
+ATC download complete ATC with DDD ATC hierarchy ATC database all ATC classes with defined daily dose atc code list excel all atc codes csv download atc codes free download atc classification of drugs_
