@@ -29,7 +29,7 @@ An example of a name with multiple codes is "miconazole", which has codes [A01AB
 For curiosity, the name with the most codes is "combinations" (38 codes), followed by "betamethasone" (11 codes), "dexamethasone" (11 codes) and "prednisolone" (11 codes); while the ATC codes with the most DDD-UoM-Adm. route combinations are [G03CA03](https://atcddd.fhi.no/atc_ddd_index/?code=G03CA03&showdescription=no) (10), [G03BA03](https://atcddd.fhi.no/atc_ddd_index/?code=G03BA03&showdescription=no) (6), [N02CA02](https://atcddd.fhi.no/atc_ddd_index/?code=N02CA02&showdescription=no) (5), [N07BA01](https://atcddd.fhi.no/atc_ddd_index/?code=N07BA01&showdescription=no) (5). Of all level-5 ATC codes, 2,229 carry at least one DDD; oral (O) is by far the most common route (1,669 entries), followed by parenteral (P, 817), and the most common units of measure are grams (1,331) and milligrams (1,277).
 
 **If you just need all ATC classes and data in one big table, you can download the CSV file in this repository.** However, remember that the WHO website is updated over time. The repository keeps prior snapshots so you can diff over time:
-- `WHO ATC-DDD 2026-04-25.csv` (latest, this run)
+- `WHO ATC-DDD 2026-04-25.csv` (latest)
 - `WHO ATC-DDD 2025-06-14.csv` (contributed by [@stabgan](https://github.com/stabgan))
 - `WHO ATC-DDD 2024-07-31.csv`
 - `WHO ATC-DDD 2021-12-03.csv`
