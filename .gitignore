@@ -1,0 +1,11 @@
+# Scrape artifacts (CSVs are copied to the repo root for release)
+output/
+
+# Python
+__pycache__/
+*.pyc
+
+# R
+.Rhistory
+.RData
+.Ruserdata
