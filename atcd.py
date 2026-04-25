@@ -32,15 +32,16 @@ def is_valid_atc_code(code):
 def scrape_who_atc(root_atc_code, f_out):
     """
     This function scrapes and writes all data available from
-    https://www.whocc.no/atc_ddd_index/ for the given ATC code and all its subcodes.
+    https://atcddd.fhi.no/atc_ddd_index/ for the given ATC code and all its subcodes.
     """
     # Validate the ATC code before proceeding
     if not is_valid_atc_code(root_atc_code):
         return
-    
-    web_address = 'https://www.whocc.no/atc_ddd_index/?code={}&showdescription=no'.format(root_atc_code)
+
+    web_address = 'https://atcddd.fhi.no/atc_ddd_index/?code={}&showdescription=no'.format(root_atc_code)
     print('Scraping', web_address)
     atc_code_length = len(root_atc_code)
+    sleep(0.5)
     response = requests.get(web_address)
     if response.status_code != 200:
         print('Error fetching', web_address)
@@ -68,7 +69,6 @@ def scrape_who_atc(root_atc_code, f_out):
         for scraped_string in scraped_strings:
             match = re.match(r'^(\S+)\s+(.*)$', scraped_string)
             if match:
-                sleep(1)
                 atc_code = match.group(1)
                 atc_name = match.group(2)
                 # Check ATC code validity

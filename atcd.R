@@ -1,12 +1,13 @@
 # Header ----------------------------------------------------------------------------------------------------------
 #' atcd.R
 #' ---
-#' Scrapes the ATC data from https://www.whocc.no/atc_ddd_index/.
-#' 
+#' Scrapes the ATC data from https://atcddd.fhi.no/atc_ddd_index/ (formerly hosted on whocc.no, which
+#' now 301-redirects to the same content on atcddd.fhi.no).
+#'
 #' By Fabrício Kury
 #' File started on 2020/3/20 5:08.
 #' Margin column at 120 characters.
-#' 
+#'
 ##
 # Globals ---------------------------------------------------------------------------------------------------------
 pacman::p_load(rvest)
@@ -123,9 +124,10 @@ scrape_who_atc <- function(root_atc_code) {
   if(length(root_atc_code) != 1)
     stop('scrape_who_atc() only accepts single objects, not vectors. Please provide a single valid ATC code as input.')
   
-  web_address <- paste0('https://www.whocc.no/atc_ddd_index/?code=', root_atc_code, '&showdescription=no')
+  web_address <- paste0('https://atcddd.fhi.no/atc_ddd_index/?code=', root_atc_code, '&showdescription=no')
   message('Scraping ', web_address, '.')
   atc_code_length <- nchar(root_atc_code)
+  Sys.sleep(0.5) # Be polite to the WHO server.
   html_data <- read_html(web_address)
   
   if(atc_code_length < 5) {
