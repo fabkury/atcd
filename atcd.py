@@ -86,6 +86,35 @@ def scrape_who_atc(root_atc_code, writer, f_out):
         df = df[['atc_code', 'atc_name', 'ddd', 'uom', 'adm_r', 'note']]
         df.to_csv(f_out, index=False, header=False, lineterminator='\n')
 
+
+def validate_output(file_name):
+    """Sanity-check the produced CSV for the column-shift class of error (see
+    issue #6). A row that carries a unit (uom) or administration route (adm_r)
+    but no numeric DDD is contradictory and usually means the columns slipped
+    by one. Warns rather than fails, so the scrape result is still written."""
+    issues = []
+    with open(file_name, encoding='utf-8', newline='') as f:
+        for line_no, row in enumerate(csv.DictReader(f), start=2):
+            has_unit = row['uom'] not in ('', 'NA') or row['adm_r'] not in ('', 'NA')
+            ddd_numeric = False
+            if row['ddd'] not in ('', 'NA'):
+                try:
+                    float(row['ddd'])
+                    ddd_numeric = True
+                except ValueError:
+                    ddd_numeric = False
+            if has_unit and not ddd_numeric:
+                issues.append((line_no, row))
+    if issues:
+        print('WARNING: {} row(s) carry a unit/route without a numeric DDD '
+              '(possible column shift, see issue #6):'.format(len(issues)))
+        cols = ['atc_code', 'atc_name', 'ddd', 'uom', 'adm_r', 'note']
+        for line_no, row in issues:
+            print('  line {}: {}'.format(line_no, ','.join(row[c] for c in cols)))
+    else:
+        print('Validation passed: no column-shift anomalies detected.')
+
+
 out_file_name = os.path.join(out_dir, 'WHO ATC-DDD {}.csv'.format(pd.Timestamp.now().strftime('%Y-%m-%d')))
 print('Writing results to', out_file_name)
 if os.path.exists(out_file_name):
@@ -97,5 +126,7 @@ with open(out_file_name, 'w', encoding='utf-8', newline='') as f_out:
     for atc_root in atc_roots:
         scrape_who_atc(atc_root, writer, f_out)
         f_out.flush()
+
+validate_output(out_file_name)
 
 print('Script execution completed.')

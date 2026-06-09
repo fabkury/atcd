@@ -202,6 +202,24 @@ who_atc <- paste0('who_atc_', atc_roots) |>
   lapply(getRDS, by_name = TRUE, assign_val = FALSE, pass_val = TRUE) |>
   bind_rows()
 
+# Sanity check: flag the column-shift class of error (see issue #6). A row that
+# carries a unit (uom) or administration route (adm_r) but no numeric DDD is
+# contradictory and usually means the columns slipped by one. Warns rather than
+# stops, so the scrape result is still written.
+validate_who_atc <- function(df) {
+  has_unit <- (!is.na(df$uom) & df$uom != '') | (!is.na(df$adm_r) & df$adm_r != '')
+  ddd_numeric <- !is.na(suppressWarnings(as.numeric(df$ddd)))
+  bad <- which(has_unit & !ddd_numeric)
+  if(length(bad) > 0) {
+    warning(length(bad), ' row(s) carry a unit/route without a numeric DDD ',
+            '(possible column shift, see issue #6).')
+    print(df[bad, ])
+  } else {
+    message('Validation passed: no column-shift anomalies detected.')
+  }
+}
+validate_who_atc(who_atc)
+
 # Write them to a CSV file. Generate file name from current date in year-month-day format.
 out_file_name <- paste0(out_dir, '/WHO ATC-DDD ', format(Sys.Date(), "%Y-%m-%d"), '.csv')
 message('Writing results to ', out_file_name, '.')
