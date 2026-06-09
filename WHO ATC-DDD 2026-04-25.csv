@@ -1019,7 +1019,7 @@ B01AE07,dabigatran etexilate,0.3,g,O,NA
 B01AF,Direct factor Xa inhibitors,NA,NA,NA,NA
 B01AF01,rivaroxaban,20,mg,O,NA
 B01AF02,apixaban,10,mg,O,NA
-B01AF03,edoxaban,NA,60,mg,O
+B01AF03,edoxaban,60,mg,O,NA
 B01AF04,betrixaban,NA,NA,NA,NA
 B01AF51,rivaroxaban and acetylsalicylic acid,NA,NA,NA,NA
 B01AX,Other antithrombotic agents,NA,NA,NA,NA
